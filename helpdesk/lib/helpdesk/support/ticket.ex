@@ -20,6 +20,10 @@ defmodule Helpdesk.Support.Ticket do
 
       change set_attribute(:status, :closed)
     end
+
+    update :assign do
+      accept [:representative_id]
+    end
   end
 
   # Attributes are the simple pieces of data that exist on your resource
@@ -40,5 +44,9 @@ defmodule Helpdesk.Support.Ticket do
 
       allow_nil? false
     end
+  end
+
+  relationships do
+    belongs_to :representative, Helpdesk.Support.Representative
   end
 end
