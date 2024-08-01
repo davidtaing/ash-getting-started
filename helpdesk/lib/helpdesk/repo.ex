@@ -1,5 +1,9 @@
 defmodule Helpdesk.Repo do
-  use Ecto.Repo,
-    otp_app: :helpdesk,
-    adapter: Ecto.Adapters.Postgres
+  use AshPostgres.Repo,
+    otp_app: :helpdesk
+
+  def installed_extensions do
+    # Add extensions here, and the migration generator will install them.
+    ["ash-functions"]
+  end
 end
